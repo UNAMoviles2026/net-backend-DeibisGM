@@ -1,3 +1,4 @@
+using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using reservations_api.Data;
 using reservations_api.Repositories;
@@ -22,6 +23,10 @@ builder.Services.AddSwaggerGen(options =>
         Format = "time",
         Example = new Microsoft.OpenApi.Any.OpenApiString("08:00:00")
     });
+
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    options.IncludeXmlComments(xmlPath);
 });
 
 builder.Services.AddDbContext<AppDbContext>(options =>
