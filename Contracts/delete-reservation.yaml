@@ -15,6 +15,7 @@ paths:
           schema:
             type: string
             format: uuid
+            example: "E8095506-4A22-41AC-823D-C3C8E6E3D8F1"
       responses:
         '204':
           description: Reservation deleted successfully

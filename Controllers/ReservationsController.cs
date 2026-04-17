@@ -46,6 +46,10 @@ public class ReservationsController : ControllerBase
     }
   }
 
+  /// <summary>
+  /// Delete a reservation
+  /// </summary>
+  /// <param name="id" example="E8095506-4A22-41AC-823D-C3C8E6E3D8F1">The reservation ID</param>
   [HttpDelete("{id}")]
   public async Task<IActionResult> Delete(Guid id)
   {
