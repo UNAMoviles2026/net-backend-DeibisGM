@@ -47,6 +47,17 @@ public class ReservationsController : ControllerBase
   }
 
   /// <summary>
+  /// Get reservations by date
+  /// </summary>
+  /// <param name="date" example="2026-03-21">The date to filter reservations</param>
+  [HttpGet]
+  public async Task<IActionResult> GetByDate([FromQuery] DateOnly date)
+  {
+    var reservations = await _reservationService.GetByDateAsync(date);
+    return Ok(reservations);
+  }
+
+  /// <summary>
   /// Delete a reservation
   /// </summary>
   /// <param name="id" example="E8095506-4A22-41AC-823D-C3C8E6E3D8F1">The reservation ID</param>
